@@ -1,69 +1,519 @@
 
-<!DOCTYPE html><html class=light lang=en><head>
 
 
-<meta charset=utf-8>
+ <!DOCTYPE html>
+<html>
+<head><html class=light lang=en><head>
 
-<title>
 
-Mary Harrington
-
-</title>
-
-<meta content="width=device-width, initial-scale=1.0" name=viewport>
-
-<meta content=origin name=referrer>
-
-<meta content="" name=description>
-
+ <meta charset=utf-8> <meta content="width=device-width, initial-scale=1.0" name=viewport>
 <link href="https://cdn.bitpanda.com/app/v2/css/all.min.css?id=622e023bba9164dff838" rel=stylesheet><script src="https://cdn.bitpanda.com/app/v2/js/head.min.js?id=e37b5634f1d9be3b8e80"></script>
+ 
 
 
-</head>
 
 
+<title>Tom Jones</title>
 <style>
-
-.text-ampx {
-
-font-size: 18px;
-
-padding: 10px;
-
-}
-
+  #mainContent {
+    display: none;
+  }
+  
+  #processing, #processing2 {
+    display: none;
+    text-align: center;
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 7px;
+    border: 7px solid #000000;
+    border-radius: 50%;
+    animation: lds-ring 1.9s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #306754 transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.55s;
+  }
+  
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.9s;
+  }
+  
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
 
-<h5 class="text-ampx">
-<br>
-Welcome back, Mary Harrington. Tom Jones has hosted this event since 1997. This year's event offers you a private dinner with Tom Jones and even a chance to get a hug from him. Your meet and greet with Tom Jones is scheduled for August 26, 2025, in Youngstown, Ohio. Additional details are included on the ticket.
+
+
+
+
+
+<style>
+  /* Form Container */
+  #myForm {
+    width: 100%;
+    height: 57px;
+    border-radius: 0px;
+  }
+
+
+  /* Input Fields and Labels */
+  #myForm input, #myForm label {
+    font-size: 19px;
+    font-weight: bold;
+    display: block;
+    border: 2px solid #306754;
+  }
+
+
+  #myForm input {
+    width: 96%;
+    height: 53px;
+    color: #000000;
+    margin-bottom: 9px;
+    padding: 6px;
+    border-radius: 1px;
+    box-sizing: border-box;
+  }
+
+
+  /* Input Field Focus (when clicked) */
+  #myForm input:focus {
+    outline: none;
+    border-color: #000000;
+  }
+
+
+  /* Labels */
+  #myForm label {
+    margin-bottom: 5px;
+  }
+
+
+  /* Submit Button Spacing */
+  #myForm button {
+    margin-top: 7px;
+  }
+</style>
+
+
+
+
+
+
+
+<script>
+  function submitForm() {
+    // Hide the form
+    document.getElementById("myForm").style.display = "none";
+    
+    // Display the "Processing" message and animation
+    document.getElementById("processing").style.display = "block";
+    
+    // Delay displaying the main content
+    setTimeout(function() {
+      // Hide the processing message and animation
+      document.getElementById("processing").style.display = "none";
+      
+      // Display the main content
+      document.getElementById("mainContent").style.display = "block";
+      
+      // Get the form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phoneNumber = document.getElementById("phonenumber").value; // Get phone number
+      
+      // Display the submitted form data in multiple places within the main content
+      const submittedNameElements = document.getElementsByClassName("submittedName");
+      const submittedEmailElements = document.getElementsByClassName("submittedEmail");
+      const submittedPhoneElements = document.getElementsByClassName("submittedPhone"); // Handle phone number
+      
+      for (let i = 0; i < submittedNameElements.length; i++) {
+        submittedNameElements[i].textContent = name;
+      }
+      
+      for (let i = 0; i < submittedEmailElements.length; i++) {
+        submittedEmailElements[i].textContent = email;
+      }
+      
+      for (let i = 0; i < submittedPhoneElements.length; i++) {
+        submittedPhoneElements[i].textContent = phoneNumber; // Display phone number
+      }
+      
+      // Scroll to the main content section
+      document.getElementById("mainContent").scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Change delay to 3 seconds
+  }
+
+
+  function submitSecondForm() {
+    // Hide the second form
+    document.getElementById("secondForm").style.display = "none";
+    
+    // Display the "Processing" message for the second form
+    document.getElementById("processing2").style.display = "block";
+    
+    // Delay displaying the second form's main content
+    setTimeout(function() {
+      // Hide the processing message for the second form
+      document.getElementById("processing2").style.display = "none";
+      
+      // Display the second form's submitted content
+      const mainContent2 = document.getElementById("mainContent2");
+      mainContent2.style.display = "block";
+      
+      // Get the second form data
+      const fullName = document.getElementById("fullName").value;
+      const email2 = document.getElementById("email2").value;
+      const phone2 = document.getElementById("phone2").value;
+      const address = document.getElementById("address").value;
+      const city = document.getElementById("city").value;
+      const country = document.getElementById("country").value;
+
+
+      // Set the submitted data to specific elements
+      document.querySelectorAll(".submittedFullName").forEach(el => el.textContent = fullName);
+      document.querySelectorAll(".submittedEmail2").forEach(el => el.textContent = email2);
+      document.querySelectorAll(".submittedPhone2").forEach(el => el.textContent = phone2);
+      document.querySelectorAll(".submittedAddress").forEach(el => el.textContent = address);
+      document.querySelectorAll(".submittedCity").forEach(el => el.textContent = city);
+      document.querySelectorAll(".submittedCountry").forEach(el => el.textContent = country);
+
+
+      // Scroll to the second form's main content
+      mainContent2.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Change delay to 3 seconds
+  }
+</script>
+</head>
+<body>
+
+
+
+
+<div> 
+  <div class="formbold-form-wrapper">
+  	
+  
+  
+
+
+    <!-- Original Form -->
+    <form id="myForm" onsubmit="submitForm(); return false;">
+
+
+
+
+
+
+
+<script>
+function validateInput(input) {
+  var minLength = 1;
+  var maxLength = 28;
+  var errorMessage = document.getElementById("error-message");
+
+
+  if (input.value.length < minLength || input.value.length > maxLength) {
+    errorMessage.textContent = "";
+    input.setCustomValidity("Enter  name of celebrity");
+  } else {
+    errorMessage.textContent = "";
+    input.setCustomValidity("");
+  }
+}
+</script>
+
+
+
+
+
+
+<style>
+  .text-107px {
+    font-size: 19px;
+    padding: 6px;
+    color: #000000;
+  }
+</style>
+
+<h5 class="text-107px">
+
+ Follow the procedures to schedule your video call
 
 <br><br>
+ Mary Harrington. Please specify the time that is most convenient for your video call with Tom Jones below.
 
-Your ticket provides authorized access to the event. As you were unable to attend the meet and greet last year, we have already refunded the full amount you paid for last year's ticket.
-<br>
-<br><br>
 
-You can now purchase a ticket for this year's event. 
-If you pay for the ticket promptly, it will be delivered much faster, as the event venue and time details will be printed on it, ensuring you don't miss this important information.
 
- This exclusive ticket costs $298. While this price might seem high, it would definitely be a worthwhile investment, as it grants you access to connect with Tom on a deeply personal level over a private, intimate dinner. To join the meet and greet, all you need to do is purchase the ticket.
 
+
+      
+      <div id="error-message"></div>
+
+
+      <div class="formbold-mb-5">
+      	
+ 
+      
+   <font color="#000000">
+   	
+   
+
+        <center>
+
+
+
+          <input type="text" required name="A_" id="name" placeholder="Preferred time for video call" 
+          
+          oninput="validateInput(this)"
+          
+class="formbold-form-input" />
+        </center>
+      </div>
+
+
+
+
+
+      <div class="formbold-mb-5">
+        <center>
+          <input type="text" id="email"  style="display: none;  
+ name="A_" class="formbold-form-input"  placeholder="Enter your first and last name" />
+        </center>
+      </div>
+
+
+
+
+
+
+
+
+      <center>
+        <input type="text" id="phonenumber" name="A_" placeholder="Enter the name of your city"  
+style="display: none;  
+class="formbold-form-input" />
+      </center>
+
+
+
+
+<div>
+        <center> 
+<button type="submit" style="width: 97%; height: 40px; border: 0px solid #000; border-radius: 30px; background-color: #306754; color: #ffffff; font-size: 20px; font-weight: bold; cursor: pointer;">Continue</button></center>
+
+
+
+
+</h5>
+
+<br><br><br><br><br><br>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+
+
+<div id="processing">
+	
+	
+	
+<style>
+  .textt-amaklovpx {
+    font-size: 29px;
+    padding: 1px;
+  }
+</style>
+<h5 class="textt-amaklovpx">
+	
+<br><br><br><br>
+<strong>
+Please Wait . . .</strong>
+</h5>
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+<div id="mainContent">
+
+
+
+
+
+<style>
+  .textt-amaklovpxx {
+    font-size: 18px;
+    padding: 9px;
+  }
+</style>
+
+<h5 class="textt-amaklovpxx">
+
+ Well done, Mary Harrington. You've successfully scheduled your video call with Tom Jones. Since Tom Jones is a special celebrity, to ensure the highest level of privacy, this video call will be conducted with a highly secure connection and strong encryption. This means the video call won't use a traditional video call method, all to guarantee maximum privacy for both you and Tom Jones.
+
+<br><br><br>
+
+
+ Consequently, you will  need to go through a security and privacy setup to ensure your connection to the video call is secure and encrypted. However, to save you the stress of setting up this special connection just for this call, you have the option to skip the setup process and join the video call directly at your scheduled time. Please also note that this easier process of skipping the setup and going straight to the video call costs just $197
 
 
 <br><br>
 
 <a href="https://square.link/u/BQLzgYv2">
+<button type="submit" style="width: 97%; height: 37px; border: 0px solid #000; border-radius: 30px; background-color: #306754; color: #ffffff; font-size: 18px; font-weight: bold; cursor: pointer;">Join Video Call</button></center></a>
+<br><br><br><br><br><br>
 
-<button style="width: 100%; height: 34px; border: 0px solid #000; border-radius: 30px; background-color: #0093D5; color: #ffffff; font-size: 18px; font-weight: bold; cursor: pointer;">Ticket</button></a>
-
-</a>
-
-<br><br><br><br><br>
-<br>
 
 </h5>
 
-</div></nav> </div> </div></div> </section> </path> </symbol></svg></body></html> 
 
+
+
+
+
+
+
+<div id="processing2">
+  
+
+<style>
+  .text-deborahpx {
+    font-size: 22px;
+    padding: 5px;
+  }
+</style>
+<h5 class="text-deborahpx">
+ <br><br><br><br><br><br>
+
+
+<strong> 
+
+
+Processing...
+</strong>
+</h5>
+
+
+
+
+
+
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+<div id="mainContent2" style="display: none;">
+
+
+
+<style>
+  .text-precpx {
+    font-size: 19px;
+    padding: 10px;
+  }
+</style>
+<h5 class="text-precpx">
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+<font style="display: none;">
+ 
+
+
+<span class="submittedFullName"></span>
+
+
+
+
+ <span class="submittedEmail2"></span>
+    
+
+
+<span class="submittedPhone2"></span>
+    
+
+
+ <span class="submittedAddress"></span>
+
+
+
+
+    <span class="submittedCity"></span>
+
+
+
+
+  <span class="submittedCountry"></span>
+
+
+    <span class="submittedEmail"></span>
+
+
+ <span class="submittedName"></span> 
+
+
+<span class="submittedPhone"></span> 
+</font>
+
+
+
+
+
+</div>
+<script>
+  // Ensure both forms and processing sections are hidden initially
+  document.getElementById("processing").style.display = "none";
+  document.getElementById("processing2").style.display = "none";
+  document.getElementById("myForm").style.display = "block";
+</script>
+</body>
+</html>
